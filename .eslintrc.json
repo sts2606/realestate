@@ -1,0 +1,56 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "eslint-config-airbnb/whitespace"
+  ],
+  "plugins": ["react"],
+  "env": {
+    "es6": true,
+    "commonjs": false,
+    "node": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "tsx": true
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.ts",
+        "**/*.test.tsx"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
+  "rules": {
+    "linebreak-style": [0, "windows"],
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/prop-types": [0],
+    "no-plusplus": [0],
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "controlComponents": ["InputText", "Checkbox"],
+      "depth": 3
+    }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
