@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Header from './Header';
 import routes from '../constants/routes';
 import CustomInput from './CustomInput';
-import formInputAtributes from '../constants/formInputAtributes';
+import formInputAttributes from '../constants/formInputAttributes';
 import { emailValidate, passwordValidate } from '../utils/validateInputs';
 import { logIn } from '../services/auth.service';
 import { setUser } from '../actions/user.actions';
@@ -41,11 +41,11 @@ const LogIn: FC = () => {
   const fieldHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const field = event.currentTarget;
     const { id } = field;
-    if (id === formInputAtributes.Email) {
+    if (id === formInputAttributes.Email) {
       setEmail(field.value);
       setIsEmailValidated(!!emailValidate(field.value));
     }
-    if (id === formInputAtributes.Password) {
+    if (id === formInputAttributes.Password) {
       setPassword(field.value);
       setIsPasswordValidated(!!passwordValidate(field.value));
     }
@@ -57,22 +57,22 @@ const LogIn: FC = () => {
       <Container className="authentification-form">
         <Form noValidate onSubmit={handleSubmit}>
           <CustomInput
-            controlId={formInputAtributes.Email}
+            controlId={formInputAttributes.Email}
             label="Email"
             inputHandler={fieldHandler}
             placeholder="Email"
             value={email}
             valid={isEmailValidated}
-            type={formInputAtributes.Email}
+            type={formInputAttributes.Email}
           />
           <CustomInput
-            controlId={formInputAtributes.Password}
+            controlId={formInputAttributes.Password}
             label="Password"
             inputHandler={fieldHandler}
             placeholder="Password"
             value={password}
             valid={isPasswordValidated}
-            type={formInputAtributes.Password}
+            type={formInputAttributes.Password}
           />
           <Button type="submit" disabled={!isEmailValidated && !isPasswordValidated}>Login</Button>
           <div>

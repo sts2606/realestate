@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import CustomInput from './CustomInput';
-import formInputAtributes from '../constants/formInputAtributes';
+import formInputAttributes from '../constants/formInputAttributes';
 import { emailValidate, passwordValidate } from '../utils/validateInputs';
 import { signUp } from '../services/auth.service';
 import { setUserAuthentification, showToast } from '../actions/app.actions';
@@ -43,15 +43,15 @@ const SignUp: FC = () => {
   const fieldHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const field = event.currentTarget;
     const { id } = field;
-    if (id === formInputAtributes.Email) {
+    if (id === formInputAttributes.Email) {
       setEmail(field.value);
       setIsEmailValidated(!!emailValidate(field.value));
     }
-    if (id === formInputAtributes.Password) {
+    if (id === formInputAttributes.Password) {
       setPassword(field.value);
       setIsPasswordValidated(!!passwordValidate(field.value));
     }
-    if (id === formInputAtributes.ConfirmPassword) {
+    if (id === formInputAttributes.ConfirmPassword) {
       setConfirmPassword(field.value);
       setIsConfirmPasswordValidated(!!passwordValidate(field.value));
     }
@@ -63,31 +63,31 @@ const SignUp: FC = () => {
       <Container className="authentification-form">
         <Form noValidate onSubmit={handleSubmit}>
           <CustomInput
-            controlId={formInputAtributes.Email}
+            controlId={formInputAttributes.Email}
             label="Email"
             inputHandler={fieldHandler}
             placeholder="Email"
             value={email}
             valid={isEmailValidated}
-            type={formInputAtributes.Email}
+            type={formInputAttributes.Email}
           />
           <CustomInput
-            controlId={formInputAtributes.Password}
+            controlId={formInputAttributes.Password}
             label="Password"
             inputHandler={fieldHandler}
             placeholder="Password"
             value={password}
             valid={isPasswordValidated}
-            type={formInputAtributes.Password}
+            type={formInputAttributes.Password}
           />
           <CustomInput
-            controlId={formInputAtributes.ConfirmPassword}
+            controlId={formInputAttributes.ConfirmPassword}
             label="Confirm Password"
             inputHandler={fieldHandler}
             placeholder="Confirm Password"
             value={confirmPassword}
             valid={isConfirmPasswordValidated}
-            type={formInputAtributes.Password}
+            type={formInputAttributes.Password}
           />
           <Button
             type="submit"

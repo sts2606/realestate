@@ -1,7 +1,7 @@
-enum FormInputAtributes {
+enum FormInputAttributes {
   Email = 'email',
   Password = 'password',
   ConfirmPassword = 'confirmPassword',
 }
 
-export default FormInputAtributes;
+export default FormInputAttributes;
