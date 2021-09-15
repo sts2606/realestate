@@ -13,7 +13,7 @@ import { setUser } from '../actions/user.actions';
 import Header from './Header';
 import routes from '../constants/routes';
 
-import '../styles/authentification-form.css';
+import '../styles/authentication-form.css';
 
 const SignUp: FC = () => {
   const [email, setEmail] = useState('');
@@ -62,7 +62,7 @@ const SignUp: FC = () => {
   return (
     <>
       <Header />
-      <Container className="authentification-form">
+      <Container className="authentication-form">
         <Form noValidate onSubmit={handleSubmit}>
           <CustomInput
             controlId={formInputAttributes.Email}

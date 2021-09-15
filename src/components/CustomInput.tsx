@@ -32,8 +32,8 @@ const CustomInput: FC<CustomInputProps> = ({
           placeholder={placeholder}
           onChange={inputHandler}
           value={value}
-          isValid={value.length > 0 && valid}
-          isInvalid={value.length > 0 && !valid}
+          isValid={valid}
+          isInvalid={!valid}
         />
       </Col>
     </Form.Group>

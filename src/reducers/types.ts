@@ -4,6 +4,6 @@ export interface IAppState {
 }
 
 export interface IAppUser {
-  id?: number;
   email: string;
+  id?: number;
 }
