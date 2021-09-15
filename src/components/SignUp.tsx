@@ -12,6 +12,7 @@ import { setUserAuthentification, showToast } from '../actions/app.actions';
 import { setUser } from '../actions/user.actions';
 import Header from './Header';
 import routes from '../constants/routes';
+import toastTypes from '../constants/toastTypes';
 
 import '../styles/authentification-form.css';
 
@@ -31,11 +32,15 @@ const SignUp: FC = () => {
       const user = { email, password };
       try {
         const newUser = signUp(user);
-        dispatch(setUser({ id: newUser.id, email: newUser.email }));
+        dispatch(setUser({ id: newUser.id, email: newUser.email, apartments: [] }));
         dispatch(setUserAuthentification(true));
         history.push(routes.Home);
       } catch (error) {
-        dispatch(showToast(error));
+        if (error instanceof Error) {
+          dispatch(
+            showToast({ toastMessage: error.message, toastType: toastTypes.Danger })
+          );
+        }
       }
     }
   };

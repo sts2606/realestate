@@ -6,7 +6,7 @@ import { RootState } from '../reducers';
 
 const CustomToast: FC = () => {
   const [toastVisibility, setToastVisibility] = useState(false);
-  const { toastMessage } = useSelector((state: RootState) => state.app);
+  const { toastMessage, toastType } = useSelector((state: RootState) => state.app);
   const dispatch = useDispatch();
   useEffect(() => {
     toastMessage.length ? setToastVisibility(true) : setToastVisibility(false);
@@ -17,9 +17,15 @@ const CustomToast: FC = () => {
 
   return (
     <ToastContainer className="p-3" position={'middle-center'}>
-      <Toast show={toastVisibility} onClose={onCloseHandler} delay={3000}>
+      <Toast
+        show={toastVisibility}
+        onClose={onCloseHandler}
+        delay={3000}
+        autohide
+        bg={toastType}
+      >
         <Toast.Header>
-          <strong className="me-auto">Error</strong>
+          <strong className="me-auto"></strong>
           <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
         </Toast.Header>
         <Toast.Body>{toastMessage}</Toast.Body>

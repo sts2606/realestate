@@ -1,4 +1,4 @@
-import IUser from '../components/interfaces';
+import { IUser } from '../components/interfaces';
 
 const getAllUsers = (): string | null => localStorage.getItem('users');
 

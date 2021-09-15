@@ -13,16 +13,26 @@ const Authentification: FC = () => {
     (state: RootState) => state.app,
   );
 
-  const loginButtonHandler = () => {
-    history.push(routes.Login);
-  };
+  const { email } = useSelector(
+    (state: RootState) => state.user,
+  );
 
   return (
     <>
       {isUserAuthentificationed ? (
-        <Button className="authentification-button">Profile</Button>
+        <Button
+          onClick={() => history.push(routes.Profile)}
+          className="authentification-button"
+        >
+          {email}
+        </Button>
       ) : (
-        <Button onClick={loginButtonHandler} className="authentification-button">Login</Button>
+        <Button
+          onClick={() => history.push(routes.Login)}
+          className="authentification-button"
+        >
+          Login
+        </Button>
       )}
     </>
   );

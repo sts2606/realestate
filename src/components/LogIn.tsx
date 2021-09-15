@@ -12,6 +12,7 @@ import { emailValidate, passwordValidate } from '../utils/validateInputs';
 import { logIn } from '../services/auth.service';
 import { setUser } from '../actions/user.actions';
 import { setUserAuthentification, showToast } from '../actions/app.actions';
+import toastTypes from '../constants/toastTypes';
 
 import '../styles/authentification-form.css';
 
@@ -29,11 +30,15 @@ const LogIn: FC = () => {
       const user = { email, password };
       try {
         const newUser = logIn(user);
-        dispatch(setUser({ id: newUser.id, email: newUser.email }));
+        dispatch(setUser({ ...newUser, apartments: [] }));
         dispatch(setUserAuthentification(true));
         history.push(routes.Home);
       } catch (error) {
-        dispatch(showToast(error));
+        if (error instanceof Error) {
+          dispatch(
+            showToast({ toastMessage: error.message, toastType: toastTypes.Danger })
+          );
+        }
       }
     }
   };
