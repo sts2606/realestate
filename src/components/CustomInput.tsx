@@ -21,6 +21,12 @@ const CustomInput: FC<CustomInputProps> = ({
   valid,
   type = 'text',
 }) => {
+  const checkValidInput = (isValueValid: boolean): boolean | undefined => {
+    if (value.length > 0) {
+      return isValueValid
+    }
+  }
+
   return (
     <Form.Group as={Row} className="mb-3" controlId={controlId}>
       <Form.Label column sm="2">
@@ -32,8 +38,8 @@ const CustomInput: FC<CustomInputProps> = ({
           placeholder={placeholder}
           onChange={inputHandler}
           value={value}
-          isValid={value.length > 0 && valid}
-          isInvalid={value.length > 0 && !valid}
+          isValid={checkValidInput(valid)}
+          isInvalid={checkValidInput(!valid)}
         />
       </Col>
     </Form.Group>
