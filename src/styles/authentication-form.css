@@ -1,0 +1,16 @@
+.authentication-form {
+  margin-top: 5rem;
+  padding: 2rem;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+.authentication-form button,
+.authentication-form button:hover {
+  background-color: gray;
+  border-color: gray;
+}
+
+.authentication-form div {
+  margin-top: 2rem;
+}

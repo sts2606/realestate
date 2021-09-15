@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: gray;
+}
+
+.btn-primary.logo,
+.btn-primary.authentication-button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-primary.logo:hover,
+.btn-primary.authentication-button:hover {
+  background-color: lightgray;
+  border-color: transparent;
+  transition: 1s;
+}
+
+.logo-img {
+  width: 4rem;
+}
