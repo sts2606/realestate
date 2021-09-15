@@ -1,5 +1,5 @@
 export interface IAppState {
-  isUserAuthentificationed: boolean;
+  isUserAuthenticated: boolean;
   toastMessage: string,
 }
 

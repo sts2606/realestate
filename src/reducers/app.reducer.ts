@@ -1,16 +1,16 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { IAppState } from './types';
-import { setUserAuthentification, showToast, clearToast } from '../actions/app.actions';
+import { setUserAuthentication, showToast, clearToast } from '../actions/app.actions';
 
 const initialState: IAppState = {
-  isUserAuthentificationed: false,
+  isUserAuthenticated: false,
   toastMessage: '',
 };
 
 const appReducer = createReducer(initialState, (builder) => {
-  builder.addCase(setUserAuthentification, (state, action) => ({
+  builder.addCase(setUserAuthentication, (state, action) => ({
     ...state,
-    isUserAuthentificationed: action.payload,
+    isUserAuthenticated: action.payload,
   })),
   builder.addCase(showToast, (state, action) => ({
     ...state,

@@ -7,13 +7,13 @@
 }
 
 .btn-primary.logo,
-.btn-primary.authentification-button {
+.btn-primary.authentication-button {
   background-color: transparent;
   border-color: transparent;
 }
 
 .btn-primary.logo:hover,
-.btn-primary.authentification-button:hover {
+.btn-primary.authentication-button:hover {
   background-color: lightgray;
   border-color: transparent;
   transition: 1s;

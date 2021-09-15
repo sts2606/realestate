@@ -7,9 +7,9 @@ import routes from '../constants/routes';
 
 import '../styles/header.css';
 
-const Authentification: FC = () => {
+const Authentication: FC = () => {
   const history = useHistory();
-  const { isUserAuthentificationed } = useSelector(
+  const { isUserAuthenticated } = useSelector(
     (state: RootState) => state.app,
   );
 
@@ -19,13 +19,13 @@ const Authentification: FC = () => {
 
   return (
     <>
-      {isUserAuthentificationed ? (
-        <Button className="authentification-button">Profile</Button>
+      {isUserAuthenticated ? (
+        <Button className="authentication-button">Profile</Button>
       ) : (
-        <Button onClick={loginButtonHandler} className="authentification-button">Login</Button>
+        <Button onClick={loginButtonHandler} className="authentication-button">Login</Button>
       )}
     </>
   );
 };
 
-export default Authentification;
+export default Authentication;

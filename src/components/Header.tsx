@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import Logo from './Logo';
-import Authentification from './Authentification';
+import Authentication from './Authentication';
 
 import '../styles/header.css';
 
 const Header: FC = () => (
   <div className="header">
     <Logo />
-    <Authentification />
+    <Authentication />
   </div>
 );
 

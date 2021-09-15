@@ -9,7 +9,7 @@ const CustomToast: FC = () => {
   const { toastMessage } = useSelector((state: RootState) => state.app);
   const dispatch = useDispatch();
   useEffect(() => {
-    toastMessage.length ? setToastVisibility(true) : setToastVisibility(false);
+    setToastVisibility(!!toastMessage.length);
   }, [toastMessage]);
   const onCloseHandler = () => {
     dispatch(clearToast());
@@ -17,7 +17,7 @@ const CustomToast: FC = () => {
 
   return (
     <ToastContainer className="p-3" position={'middle-center'}>
-      <Toast show={toastVisibility} onClose={onCloseHandler} delay={3000}>
+      <Toast show={toastVisibility} onClose={onCloseHandler} delay={3000} autohide>
         <Toast.Header>
           <strong className="me-auto">Error</strong>
           <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />

@@ -11,15 +11,15 @@ import formInputAttributes from '../constants/formInputAttributes';
 import { emailValidate, passwordValidate } from '../utils/validateInputs';
 import { logIn } from '../services/auth.service';
 import { setUser } from '../actions/user.actions';
-import { setUserAuthentification, showToast } from '../actions/app.actions';
+import { setUserAuthentication, showToast } from '../actions/app.actions';
 
 import '../styles/authentification-form.css';
 
 const LogIn: FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [isEmailValidated, setIsEmailValidated] = useState<boolean>(false);
-  const [isPasswordValidated, setIsPasswordValidated] = useState<boolean>(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isEmailValidated, setIsEmailValidated] = useState(false);
+  const [isPasswordValidated, setIsPasswordValidated] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -30,10 +30,12 @@ const LogIn: FC = () => {
       try {
         const newUser = logIn(user);
         dispatch(setUser({ id: newUser.id, email: newUser.email }));
-        dispatch(setUserAuthentification(true));
+        dispatch(setUserAuthentication(true));
         history.push(routes.Home);
       } catch (error) {
-        dispatch(showToast(error));
+        if (error instanceof Error) {
+          dispatch(showToast(error.message));
+        }
       }
     }
   };

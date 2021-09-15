@@ -6,10 +6,10 @@ interface CustomInputProps {
   value: string,
   controlId: string,
   label: string,
-  placeholder?: string,
   inputHandler: (val: React.ChangeEvent<HTMLInputElement>) => void,
   valid: boolean,
   type?: string,
+  placeholder?: string,
 }
 
 const CustomInput: FC<CustomInputProps> = ({
@@ -32,8 +32,8 @@ const CustomInput: FC<CustomInputProps> = ({
           placeholder={placeholder}
           onChange={inputHandler}
           value={value}
-          isValid={value.length > 1 && valid}
-          isInvalid={value.length > 1 && !valid}
+          isValid={value.length > 0 && valid}
+          isInvalid={value.length > 0 && !valid}
         />
       </Col>
     </Form.Group>
